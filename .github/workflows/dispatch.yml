@@ -1,0 +1,25 @@
+name: Dispatch
+
+on: workflow_dispatch
+
+jobs:
+  dispatch:
+    # https://github.com/peter-evans/repository-dispatch
+    name: Notify target repositories via `repository_dispatch`
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: ['reclaim-ksp/reclaim-ksp-ckan-meta']
+    steps:
+      - name: Repository dispatch for `Reclaim KSP - CKAN meta`
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT }}
+          repository: ${{ matrix.repo }}
+          event-type: repository-dispatch-event_released-assets
+          # client-payload: |-
+          #   {
+          #     "repo": {
+          #       "name": "${{ github.repository }}",
+          #     }
+          #   }

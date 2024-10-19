@@ -1,0 +1,38 @@
+{
+    "name": "reclaim-ksp-monorepo",
+    "private": true,
+    "author": "Danny2462",
+    "license": "CC-BY-NC-ND-4.0",
+    "version": "0.1.0",
+    "type": "module",
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/reclaim-ksp/reclaim-ksp-monorepo.git"
+    },
+    "scripts": {
+        "prepare": "husky",
+        "type-check": "tsc --noEmit",
+        "changeset:help": "echo You probably want to run `npx changeset`. Check out `.changeset/README.md` for more."
+    },
+    "devDependencies": {
+        "@changesets/cli": "^2.27.9",
+        "@commitlint/cli": "^19.5.0",
+        "@commitlint/config-conventional": "^19.5.0",
+        "@eslint-types/typescript-eslint": "^7.5.0",
+        "@stylistic/eslint-plugin": "^2.9.0",
+        "@types/node": "^22.7.6",
+        "eslint-config-flat-gitignore": "^0.3.0",
+        "eslint-define-config": "^2.1.0",
+        "husky": "^9.1.6",
+        "type-fest": "^4.26.1",
+        "typescript": "^5.6.3",
+        "typescript-eslint": "^8.10.0"
+    },
+    "workspaces": [
+        "packages/reclaim-ksp-patches",
+        "packages/reclaim-ksp-dres"
+    ]
+}

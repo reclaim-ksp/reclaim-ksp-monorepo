@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "node_modules/typescript/lib",
+    },
+	"extensions": {
+		"recommendations": [
+			"dbaeumer.vscode-eslint",
+			"vivaxy.vscode-conventional-commits",
+			"al2me6.ksp-cfg-support"
+		]
+	}
+}

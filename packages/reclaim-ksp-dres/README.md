@@ -14,7 +14,7 @@ Better surface features!
 Colors adjusted to not be boring, nor look like it's oversaturated / has jaundice, to fit with the rest of KSP!
 
 ## Result
-<img src=".github/rsc/img/compare-ksp2-ksp1.png" alt="KSP 2 Dres (top) adapted to KSP (bottom)" width="640">
+<img src=".github/assets/img/compare-ksp2-ksp1.png" alt="KSP 2 Dres (top) adapted to KSP (bottom)" width="640">
 
 _KSP 2 Dres (top) adapted to KSP (bottom)_
 

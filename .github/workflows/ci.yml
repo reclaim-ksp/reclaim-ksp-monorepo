@@ -47,12 +47,13 @@ jobs:
 
       - name: Debug
         shell: bash
-        run: echo "changesets outputs ${{ toJson(steps.changesets.outputs) }}"
+        run: npm run build
 
       - name: Publish
+        # Once the PR https://github.com/changesets/action/pull/347 is merged, this can be much prettier
         if: steps.changesets.outputs.hasChangesets == 'false'
         shell: bash
-        run: echo "changesets outputs ${{ toJson(steps.changesets.outputs) }}"
+        run: npm run build
 
   dispatch:
     # https://github.com/peter-evans/repository-dispatch

@@ -14,6 +14,7 @@
     },
     "scripts": {
         "prepare": "husky",
+        "build": "npm run build --workspaces --if-present",
         "type-check": "tsc --noEmit",
         "changeset:help": "echo You probably want to run `npx changeset`. Check out `.changeset/README.md` for more."
     },
@@ -27,11 +28,14 @@
         "eslint-config-flat-gitignore": "^0.3.0",
         "eslint-define-config": "^2.1.0",
         "husky": "^9.1.6",
+        "ksp-mod-packager": "^0.1.0",
+        "tsx": "^4.19.1",
         "type-fest": "^4.26.1",
         "typescript": "^5.6.3",
         "typescript-eslint": "^8.10.0"
     },
     "workspaces": [
+        "packages/ksp-mod-packager",
         "packages/reclaim-ksp-patches",
         "packages/reclaim-ksp-dres"
     ]

@@ -1,4 +1,4 @@
-import fs, { type StatsBase } from "fs";
+import fs from "fs";
 import archiver from "archiver";
 import { readdirGlob, type Match } from "readdir-glob";
 

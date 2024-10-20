@@ -39,7 +39,7 @@ jobs:
           # The commit message to use.
           commit: 'chore(changesets): consumed changesets'
           # The command to use to build and publish packages
-          publish: 'npx changeset publish'
+          publish: 'npm run changeset:publish'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
@@ -47,13 +47,21 @@ jobs:
 
       - name: Debug
         shell: bash
-        run: npm run build
+        run: npm run changeset:asset-upload
+        env:
+          CHANGESET_OUTPUTS: ${{ toJson(steps.changesets.outputs) }}
+          GITHUB_CONTEXT_REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish
         # Once the PR https://github.com/changesets/action/pull/347 is merged, this can be much prettier
-        if: steps.changesets.outputs.hasChangesets == 'false'
+        if: steps.changesets.outputs.published == 'true'
         shell: bash
-        run: npm run build
+        run: npm run changeset:asset-upload
+        env:
+          CHANGESET_OUTPUTS: ${{ toJson(steps.changesets.outputs) }}
+          GITHUB_CONTEXT_REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   dispatch:
     # https://github.com/peter-evans/repository-dispatch

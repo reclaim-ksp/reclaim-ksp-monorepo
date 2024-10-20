@@ -1,11 +1,11 @@
 #!/usr/bin/env -S node --import=tsx/esm
+import chalk from "chalk";
 import { dirname, filename, join } from "desm";
 import fs from "fs-extra";
 import ora from "ora";
 import path from "path";
 import process from "process";
-import { useAsyncOperation } from "./utils/use-async-operation.js";
-import { useArchiver } from "./utils/use-archiver.js";
+import { useArchiver, useAsyncOperation } from "@reclaim-ksp/internal-utils";
 
 const __dirname = dirname(import.meta.url);
 const __filename = filename(import.meta.url);
@@ -17,13 +17,21 @@ await async function main() {
     const { asyncOperation, } = useAsyncOperation(spinner);
     const { zip, } = useArchiver();
 
-    const DIRNAME_TO_ZIP = `GameData`;
+    const DIRNAME_TO_BE_ZIPPED = `GameData`;
     const PATH_ZIP_TARGET = __join(`../../dist`);
+    const { PACKAGE_NAME, FILENAME_ZIP, } = (() => {
+        const split = cwd_original.split(path.sep);
+        const PACKAGE_NAME = split[split.length - 1];
+        const FILENAME_ZIP = `${PACKAGE_NAME}.zip`;
+        return { PACKAGE_NAME, FILENAME_ZIP, };
+    })();
 
-    const _path_toZip = await asyncOperation(
-        `Looking for "${DIRNAME_TO_ZIP}" folder inside cwd: "${cwd_original}"`,
+    console.info(`📦 - ${chalk.underline(PACKAGE_NAME)}`);
+
+    const _path_toBeZipped = await asyncOperation(
+        `Looking for "${DIRNAME_TO_BE_ZIPPED}" folder inside cwd: "${cwd_original}"`,
         async ({ succeed, fail, }) => {
-            const _path = path.resolve(cwd_original, `./${DIRNAME_TO_ZIP}/`);
+            const _path = path.resolve(cwd_original, `./${DIRNAME_TO_BE_ZIPPED}/`);
             const exists = fs.existsSync(_path);
 
             if (exists) { succeed(); return _path; }
@@ -41,16 +49,15 @@ await async function main() {
         },
     );
 
-    const split = cwd_original.split(path.sep);
-    const zipFileName = `${split[split.length - 1]}.zip`;
+
     const zipResult = await asyncOperation(
-        `Creating ZIP archive "${zipFileName}"`,
+        `Creating ZIP archive "${FILENAME_ZIP}"`,
         async ({ succeed, fail, change, }) => {
             const glob = [
                 `GameData/**/*`,
             ] as const satisfies string[];
 
-            const outputFilePath = path.join(_path_toPlaceZippedFolder, zipFileName);
+            const outputFilePath = path.join(_path_toPlaceZippedFolder, FILENAME_ZIP);
 
             const percentage = (curr: number, max: number): number => (Math.min(1, Math.max(0, (curr / max))) * 100);
             const padPercent = (num: number, decimals: number = 2): string => num
@@ -81,6 +88,7 @@ await async function main() {
         },
     );
 
-    console.info(`✔ Created "${zipResult.outputFilePath}", size: ${zipResult.bytes} bytes`);
+    console.info(`${chalk.green(`✔`)} Created "${zipResult.outputFilePath}", size: ${new Intl.NumberFormat("fr-FR").format(zipResult.bytes)} bytes`);
+    console.info(chalk.green(`✔ Done!`));
 
 }();

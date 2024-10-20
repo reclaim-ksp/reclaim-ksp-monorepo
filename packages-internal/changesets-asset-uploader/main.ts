@@ -99,7 +99,45 @@ await async function main() {
         },
     );
 
-    console.log("releases", releases);
+    console.log("Changesets output", CHANGESET_OUTPUTS);
+    console.log("GitHub releases", releases);
+
+    // /**
+    //  * changesets publishes first, without assets, we need to add them
+    //  * by the time we are in this script, builds should have already ran, zip files should be available
+    //  * 
+    //  * for each changesets publish, we have to find the related GH release
+    //  * once I have that, each GH release needs the appropriate ZIPs uploaded
+    //  */
+    // {
+    //     /**
+    //      * ! NOTE this may be simplified or this script entirely removed once https://github.com/changesets/action/pull/347 is accepted
+    //      */
+    //     const changesetsPublishedPackagesWithAssociatedGitHubReleases = CHANGESET_OUTPUTS.publishedPackages.flatMap(publishedPackage => {
+    //         /**
+    //          * [{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]
+    //          */
+    //         const { name, version, } = publishedPackage;
+    //     });
+    // }
+    // {
+    //     for (const release of releases) { // TODO: this has to be "related releases"
+    //         const { id: release_id, tag_name: release_tag_name, name: release_name, assets: release_assets, } = release;
+
+    //         const [_tag_name_package, _tag_name_version] = release_tag_name.split("@") as (string | undefined)[];
+    //         if (!_tag_name_package) throw new Error(`"tag_name" of release "${release_name}" did not contain package information: ${release_tag_name}`);
+    //         if (!_tag_name_version) throw new Error(`"tag_name" of release "${release_name}" did not contain version information: ${release_tag_name}`);
+
+    //         const { fullPath, fileName, } = findZipFilePath(_tag_name_package);
+    //         const data = fs.readFileSync(fullPath, { encoding: "binary", });
+
+    //         const owner = GITHUB_OWNER;
+    //         const repo = GITHUB_REPOSITORY_NAME;
+    //         const mediaType = { format: `application/zip`, };
+    //         const name = fileName;
+    //         await octokit.rest.repos.uploadReleaseAsset({ owner, repo, release_id, mediaType, name, data, });
+    //     }
+    // }
 
 }();
 

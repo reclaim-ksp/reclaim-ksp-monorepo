@@ -45,13 +45,13 @@ jobs:
           NPM_CONFIG_PROVENANCE: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Debug
-        shell: bash
-        run: npm run changeset:asset-upload
-        env:
-          CHANGESET_OUTPUTS: ${{ toJson(steps.changesets.outputs) }}
-          GITHUB_CONTEXT_REPOSITORY: ${{ github.repository }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Debug
+      #   shell: bash
+      #   run: npm run changeset:asset-upload
+      #   env:
+      #     CHANGESET_OUTPUTS: ${{ toJson(steps.changesets.outputs) }}
+      #     GITHUB_CONTEXT_REPOSITORY: ${{ github.repository }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish
         # Once the PR https://github.com/changesets/action/pull/347 is merged, this can be much prettier

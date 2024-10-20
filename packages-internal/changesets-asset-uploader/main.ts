@@ -3,6 +3,7 @@ import chalk from "chalk";
 import { dirname, filename, join } from "desm";
 import fs from "fs-extra";
 import { Octokit } from "octokit";
+import type { RestEndpointMethodTypes } from "@octokit/plugin-rest-endpoint-methods";
 import ora from "ora";
 import path from "path";
 import process from "process";
@@ -14,7 +15,9 @@ import "dotenv/config";
 const __dirname = dirname(import.meta.url);
 const __filename = filename(import.meta.url);
 const __join = (...str: string[]) => join(import.meta.url, ...str);
+const __root = (...str: string[]) => __join("../../", ...str);
 const cwd_original = process.cwd();
+const ROOT_PATH_DIST = `dist`;
 
 /**
  * For some reason, `publishedPackages` is encoded wrongly, it's a JSON string that needs additional parsing
@@ -61,14 +64,6 @@ await async function main() {
         const publishedPackages = Value.Convert(ChangesetsTypes_Output.properties["publishedPackages"], JSON.parse(_CHANGESET_OUTPUTS_VERBATIM.publishedPackages));
         Value.Assert(ChangesetsTypes_Output.properties["publishedPackages"], publishedPackages);
         const CHANGESET_OUTPUTS: ChangesetsTypes_Output = { ..._CHANGESET_OUTPUTS_VERBATIM, publishedPackages, };
-        console.log("CHANGESET_OUTPUTS");
-        console.log("_PARSED");
-        console.log(_PARSED);
-        console.log("_CHANGESET_OUTPUTS_VERBATIM");
-        console.log(_CHANGESET_OUTPUTS_VERBATIM);
-        console.log("CHANGESET_OUTPUTS");
-        console.log(CHANGESET_OUTPUTS);
-        console.log("//CHANGESET_OUTPUTS");
         Value.Assert(ChangesetsTypes_Output, CHANGESET_OUTPUTS);
 
         const [GITHUB_OWNER, GITHUB_REPOSITORY_NAME] = GITHUB_CONTEXT_REPOSITORY?.split("/") ?? new Array<undefined>();
@@ -99,7 +94,86 @@ await async function main() {
         },
     );
 
-    console.log("releases", releases);
+    console.log("Changesets output:\n", CHANGESET_OUTPUTS);
+    console.log("GitHub releases:\n", releases);
+
+    /**
+     * changesets publishes first, without assets, we need to add them
+     * by the time we are in this script, builds should have already ran, zip files should be available
+     * 
+     * for each changesets publish, we have to find the related GH release
+     * once I have that, each GH release needs the appropriate ZIPs uploaded
+     */
+
+    const processedReleases = await asyncOperation(
+        `Uploading assets`,
+        async ({ succeed, fail, change, }) => {
+            try {
+                /**
+                 * ! NOTE this may be simplified or this script entirely removed once https://github.com/changesets/action/pull/347 is accepted
+                 */
+                const changesetsPublishedPackagesWithAssociatedGitHubReleases = CHANGESET_OUTPUTS.publishedPackages.map(publishedPackage => {
+                    /**
+                     * NOTE:
+                     * Format of `publishedPackages`:
+                     * [{"name": "reclaim-ksp-dres", "version": "0.1.1"}, {"name": "reclaim-ksp-patches", "version": "0.1.1"}]
+                     */
+                    const { name, version, } = publishedPackage;
+                    const _shouldMatchInGitHubRelease_tag_name = `${name}@${version}`;
+                    const associatedGitHubRelease = releases.find((release) => release.tag_name === _shouldMatchInGitHubRelease_tag_name);
+                    if (!associatedGitHubRelease) {
+                        throw new Error(`Couldn't associate any GitHub release to the following Changesets publish result: ${JSON.stringify(publishedPackage)}`);
+                    }
+                    return { publishedPackage, associatedGitHubRelease, };
+                });
+
+                const length = changesetsPublishedPackagesWithAssociatedGitHubReleases.length;
+                const results = new Array<&(
+                    & (typeof changesetsPublishedPackagesWithAssociatedGitHubReleases)[number]
+                    & {
+                        uploadedReleaseAsset: RestEndpointMethodTypes["repos"]["uploadReleaseAsset"]["response"],
+                    }
+                )>();
+                for await (const entry of changesetsPublishedPackagesWithAssociatedGitHubReleases) {
+                    const {
+                        associatedGitHubRelease: { id: release_id, assets: release_assets, name: release_name, },
+                        publishedPackage: { name: package_name, version: package_version, },
+                    } = entry;
+
+                    const owner = GITHUB_OWNER;
+                    const repo = GITHUB_REPOSITORY_NAME;
+                    const mediaType = { format: `application/zip`, };
+                    const name = `${package_name}.zip`;
+                    const fullPathToZipFileOfPackage = __root(`./${ROOT_PATH_DIST}/${name}`);
+                    /**
+                     * ! WARNING:
+                     * ! The `rest.repos.uploadReleaseAsset()` typing is lying about `data`: https://github.com/octokit/octokit.js/discussions/2087
+                     * ! It needs to be the default `Buffer`, instead of a `string` that was created by `readFileSync()`'s `{ encoding: "binary", }`
+                     */
+                    const data = fs.readFileSync(fullPathToZipFileOfPackage) as unknown as string;
+
+                    change((text) => `${text}: (${results.length + 1}/${length}) ⌛ "${name}" to release "${release_name}" (id: ${release_id})`);
+
+                    const uploadedReleaseAsset = await octokit.rest.repos.uploadReleaseAsset({ owner, repo, release_id, mediaType, name, data, });
+
+                    change((text) => `${text}: (${results.length + 1}/${length}) ✅ "${name}" to release "${release_name}" (id: ${release_id})`);
+                    results.push({ ...entry, uploadedReleaseAsset, });
+                }
+
+                succeed((text) => `${text}: uploaded ${results.length} assets`);
+                return results;
+            } catch (error) {
+                return fail();
+            }
+        },
+    );
+
+    console.group(`${chalk.green(`✔`)} Processed releases:`);
+    for (const element of processedReleases) {
+        console.info(element);
+    }
+    console.info(chalk.green(`✔ Done!`));
+    console.groupEnd();
 
 }();
 

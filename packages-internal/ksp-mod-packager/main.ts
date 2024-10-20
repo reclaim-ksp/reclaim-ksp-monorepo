@@ -10,7 +10,9 @@ import { useArchiver, useAsyncOperation } from "@reclaim-ksp/internal-utils";
 const __dirname = dirname(import.meta.url);
 const __filename = filename(import.meta.url);
 const __join = (...str: string[]) => join(import.meta.url, ...str);
+const __root = (...str: string[]) => __join("../../", ...str);
 const cwd_original = process.cwd();
+const ROOT_PATH_DIST = `dist`;
 
 await async function main() {
     const spinner = ora();
@@ -18,7 +20,7 @@ await async function main() {
     const { zip, } = useArchiver();
 
     const DIRNAME_TO_BE_ZIPPED = `GameData`;
-    const PATH_ZIP_TARGET = __join(`../../dist`);
+    const PATH_ZIP_TARGET = __root(`./${ROOT_PATH_DIST}`);
     const { PACKAGE_NAME, FILENAME_ZIP, } = (() => {
         const split = cwd_original.split(path.sep);
         const PACKAGE_NAME = split[split.length - 1];

@@ -1,5 +1,11 @@
 # reclaim-ksp-dres
 
+## 0.1.4
+
+### Patch Changes
+
+- 9db2c07: ci: internal ckan file supplying x_netkan_version_edit as well
+
 ## 0.1.3
 
 ### Patch Changes

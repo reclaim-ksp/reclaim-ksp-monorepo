@@ -1,22 +1,18 @@
 #!/usr/bin/env -S node --import=tsx/esm
 import chalk from "chalk";
-import { dirname, filename, join } from "desm";
+import { join } from "desm";
 import fs from "fs-extra";
 import { Octokit } from "octokit";
 import type { RestEndpointMethodTypes } from "@octokit/plugin-rest-endpoint-methods";
 import ora from "ora";
-import path from "path";
 import process from "process";
 import { useAsyncOperation } from "@reclaim-ksp/internal-utils";
 import { type Static, Type } from "@sinclair/typebox";
 import { Value } from "@sinclair/typebox/value";
 import "dotenv/config";
 
-const __dirname = dirname(import.meta.url);
-const __filename = filename(import.meta.url);
 const __join = (...str: string[]) => join(import.meta.url, ...str);
 const __root = (...str: string[]) => __join("../../", ...str);
-const cwd_original = process.cwd();
 const ROOT_PATH_DIST = `dist`;
 
 /**
@@ -143,8 +139,8 @@ await async function main() {
                     const owner = GITHUB_OWNER;
                     const repo = GITHUB_REPOSITORY_NAME;
                     const mediaType = { format: `application/zip`, };
-                    const name = `${package_name}.zip`;
-                    const fullPathToZipFileOfPackage = __root(`./${ROOT_PATH_DIST}/${name}`);
+                    const FILENAME_ZIP = `${package_name}.zip`;
+                    const fullPathToZipFileOfPackage = __root(`./${ROOT_PATH_DIST}/${FILENAME_ZIP}`);
                     /**
                      * ! WARNING:
                      * ! The `rest.repos.uploadReleaseAsset()` typing is lying about `data`: https://github.com/octokit/octokit.js/discussions/2087
@@ -152,11 +148,12 @@ await async function main() {
                      */
                     const data = fs.readFileSync(fullPathToZipFileOfPackage) as unknown as string;
 
-                    change((text) => `${text}: (${results.length + 1}/${length}) ⌛ "${name}" to release "${release_name}" (id: ${release_id})`);
+                    change((text) => `${text}: (${results.length + 1}/${length}) ⌛ "${FILENAME_ZIP}" as "${name}" to GitHub release "${release_name}" (id: ${release_id})`);
 
+                    const name = `${package_name}@${package_version}.zip`;
                     const uploadedReleaseAsset = await octokit.rest.repos.uploadReleaseAsset({ owner, repo, release_id, mediaType, name, data, });
 
-                    change((text) => `${text}: (${results.length + 1}/${length}) ✅ "${name}" to release "${release_name}" (id: ${release_id})`);
+                    change((text) => `${text}: (${results.length + 1}/${length}) ✅ "${FILENAME_ZIP}" as "${name}" to GitHub release "${release_name}" (id: ${release_id})`);
                     results.push({ ...entry, uploadedReleaseAsset, });
                 }
 

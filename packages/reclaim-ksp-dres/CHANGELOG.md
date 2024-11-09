@@ -1,5 +1,11 @@
 # reclaim-ksp-dres
 
+## 0.1.2
+
+### Patch Changes
+
+- e0b60bc: ci: changesets-asset-uploader changes to allow usage of `version_from_asset` in netkan files
+
 ## 0.1.1
 
 ### Patch Changes

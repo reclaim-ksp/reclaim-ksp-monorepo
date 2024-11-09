@@ -35,5 +35,10 @@
             "install_to": "GameData",
             "as": "ReclaimKspDres"
         }
-    ]
+    ],
+    "x_netkan_version_edit": {
+        "find": ".*@(?<version>.+)$",
+        "replace": "${version}",
+        "strict": true
+    }
 }

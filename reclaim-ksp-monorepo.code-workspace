@@ -7,9 +7,14 @@
 	"settings": {
 		"typescript.tsdk": "node_modules/typescript/lib",
 		"cSpell.words": [
+			"bugtracker",
 			"commitlint",
+			"Cryo",
 			"desm",
-			"dres"
+			"dres",
+			"Kerbal",
+			"metapackage",
+			"Modpack"
 		],
     },
 	"extensions": {

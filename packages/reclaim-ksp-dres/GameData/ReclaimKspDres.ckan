@@ -17,17 +17,6 @@
     "tags": [
         "planet-pack"
     ],
-    "depends": [
-        {
-            "name": "Kopernicus"
-        },
-        {
-            "name": "ModuleManager"
-        },
-        {
-            "name": "VertexMitchellNetravaliHeightMap"
-        }
-    ],
     "install": [
         {
             "find": "GameData/ReclaimKspDres",
@@ -39,5 +28,16 @@
         "find": ".*@(?<version>.+)$",
         "replace": "${version}",
         "strict": true
-    }
+    },
+    "depends": [
+        {
+            "name": "Kopernicus"
+        },
+        {
+            "name": "ModuleManager"
+        },
+        {
+            "name": "VertexMitchellNetravaliHeightMap"
+        }
+    ]
 }

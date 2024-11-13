@@ -13,6 +13,18 @@
         "homepage": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/tree/main/packages/reclaim-ksp-patches",
         "repository": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo"
     },
+    "install": [
+        {
+            "find": "GameData/ReclaimKspPatches",
+            "install_to": "GameData",
+            "as": "ReclaimKspPatches"
+        }
+    ],
+    "x_netkan_version_edit": {
+        "find": ".*@(?<version>.+)$",
+        "replace": "${version}",
+        "strict": true
+    },
     "depends": [
         {
             "name": "B9PartSwitch",

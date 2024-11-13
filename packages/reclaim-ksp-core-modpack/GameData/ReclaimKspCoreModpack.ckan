@@ -13,6 +13,12 @@
         "homepage": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/tree/main/packages/reclaim-ksp-core-modpack",
         "repository": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo"
     },
+    "kind": "metapackage",
+    "x_netkan_version_edit": {
+        "find": ".*@(?<version>.+)$",
+        "replace": "${version}",
+        "strict": true
+    },
     "depends": [
         {
             "name": "AlternateResourcePanel",

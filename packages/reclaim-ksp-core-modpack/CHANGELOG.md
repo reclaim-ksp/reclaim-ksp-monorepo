@@ -1,5 +1,11 @@
 # reclaim-ksp-core-modpack
 
+## 0.1.4
+
+### Patch Changes
+
+- 0d99b45: fix: moved internal `.ckan` files to work around install issues with metapackages
+
 ## 0.1.3
 
 ### Patch Changes

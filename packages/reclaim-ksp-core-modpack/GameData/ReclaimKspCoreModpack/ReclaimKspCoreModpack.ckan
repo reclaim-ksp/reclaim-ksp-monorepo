@@ -14,6 +14,13 @@
         "repository": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo"
     },
     "kind": "metapackage",
+    "install": [
+        {
+            "find": "GameData/ReclaimKspCoreModpack",
+            "install_to": "GameData",
+            "as": "ReclaimKspCoreModpack"
+        }
+    ],
     "x_netkan_version_edit": {
         "find": ".*@(?<version>.+)$",
         "replace": "${version}",

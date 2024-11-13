@@ -1,5 +1,11 @@
 # reclaim-ksp-dres
 
+## 0.1.5
+
+### Patch Changes
+
+- 1362050: fix: updated internal `.ckan` file for correct inflation by `netkan.exe`
+
 ## 0.1.4
 
 ### Patch Changes

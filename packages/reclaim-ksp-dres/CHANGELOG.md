@@ -1,5 +1,11 @@
 # reclaim-ksp-dres
 
+## 0.1.6
+
+### Patch Changes
+
+- 0d99b45: fix: moved internal `.ckan` files to work around install issues with metapackages
+
 ## 0.1.5
 
 ### Patch Changes

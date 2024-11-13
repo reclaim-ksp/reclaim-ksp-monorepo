@@ -1,13 +1,18 @@
 {
-    "spec_version": "v1.6",
-    "identifier": "installed-auto",
-    "name": "installed-auto",
-    "abstract": "A list of modules installed on the auto KSP instance",
-    "author": "danni",
-    "version": "2024.10.25.08.53.54",
-    "ksp_version_min": "1.10",
-    "ksp_version_max": "1.12",
-    "license": "unknown",
+    "identifier": "ReclaimKspCoreModpack",
+    "name": "Reclaim KSP - Core Modpack",
+    "abstract": "This is a metapackage containing all the dependencies of Reclaim KSP.",
+    "author": [
+        "Danny2462"
+    ],
+    "ksp_version_min": "1.12",
+    "license": "CC-BY-NC-ND-4.0",
+    "release_status": "development",
+    "resources": {
+        "bugtracker": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/issues",
+        "homepage": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/tree/main/packages/reclaim-ksp-core-modpack",
+        "repository": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo"
+    },
     "depends": [
         {
             "name": "AlternateResourcePanel",
@@ -242,10 +247,6 @@
             "suppress_recommendations": true
         },
         {
-            "name": "ReclaimKspDres",
-            "suppress_recommendations": true
-        },
-        {
             "name": "ReentryParticleEffect",
             "suppress_recommendations": true
         },
@@ -361,7 +362,5 @@
             "name": "ZeroMiniAVC",
             "suppress_recommendations": true
         }
-    ],
-    "release_date": "2024-10-25T08:53:54.9265859Z",
-    "kind": "metapackage"
+    ]
 }

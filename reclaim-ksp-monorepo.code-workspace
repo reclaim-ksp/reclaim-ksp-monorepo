@@ -22,7 +22,12 @@
             {
                 "url": "https://json.schemastore.org/KSP-CKAN.json",
                 "fileMatch": [
-                    "*.ckan",
+                    "*.ckan"
+                ]
+            },
+            {
+                "url": "https://raw.githubusercontent.com/KSP-CKAN/CKAN/master/NetKAN.schema",
+                "fileMatch": [
                     "*.netkan",
                     "*.frozen"
                 ]

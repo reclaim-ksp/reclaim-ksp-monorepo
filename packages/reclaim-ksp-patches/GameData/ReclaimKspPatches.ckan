@@ -1,0 +1,34 @@
+{
+    "identifier": "ReclaimKspPatches",
+    "name": "Reclaim KSP - Patches",
+    "abstract": "This package contains all the patches to be applied on top of Reclaim KSP - Core Modpack.",
+    "author": [
+        "Danny2462"
+    ],
+    "ksp_version_min": "1.12",
+    "license": "CC-BY-NC-ND-4.0",
+    "release_status": "development",
+    "resources": {
+        "bugtracker": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/issues",
+        "homepage": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/tree/main/packages/reclaim-ksp-patches",
+        "repository": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo"
+    },
+    "depends": [
+        {
+            "name": "B9PartSwitch",
+            "suppress_recommendations": true
+        },
+        {
+            "name": "CryoTanks-Core",
+            "suppress_recommendations": true
+        },
+        {
+            "name": "Harmony2",
+            "suppress_recommendations": true
+        },
+        {
+            "name": "KiwiTechTree",
+            "suppress_recommendations": true
+        }
+    ]
+}

@@ -1,27 +1,49 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"typescript.tsdk": "node_modules/typescript/lib",
-		"cSpell.words": [
-			"bugtracker",
-			"commitlint",
-			"Cryo",
-			"desm",
-			"dres",
-			"Kerbal",
-			"metapackage",
-			"Modpack"
-		],
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "cSpell.words": [
+            "bugtracker",
+            "ckan",
+            "commitlint",
+            "Cryo",
+            "desm",
+            "dres",
+            "Kerbal",
+            "metapackage",
+            "Modpack",
+            "netkan"
+        ],
+        "json.schemas": [
+            {
+                "url": "https://json.schemastore.org/KSP-CKAN.json",
+                "fileMatch": [
+                    "*.ckan"
+                ]
+            },
+            {
+                "url": "https://raw.githubusercontent.com/KSP-CKAN/CKAN/master/NetKAN.schema",
+                "fileMatch": [
+                    "*.netkan",
+                    "*.frozen"
+                ]
+            }
+        ],
+        "files.associations": {
+            "*.ckan": "json",
+            "*.netkan": "json",
+            "*.frozen": "json",
+        }
     },
-	"extensions": {
-		"recommendations": [
-			"dbaeumer.vscode-eslint",
-			"vivaxy.vscode-conventional-commits",
-			"al2me6.ksp-cfg-support"
-		]
-	}
+    "extensions": {
+        "recommendations": [
+            "dbaeumer.vscode-eslint",
+            "vivaxy.vscode-conventional-commits",
+            "al2me6.ksp-cfg-support"
+        ]
+    }
 }

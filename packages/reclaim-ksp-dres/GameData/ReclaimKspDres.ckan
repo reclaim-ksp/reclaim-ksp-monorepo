@@ -1,5 +1,4 @@
 {
-    "$schema": "https://raw.githubusercontent.com/KSP-CKAN/CKAN/master/CKAN.schema",
     "identifier": "ReclaimKspDres",
     "name": "Reclaim KSP - Dres",
     "abstract": "This mod adds Dres, the urban legend referenced in KSP memes, based on testimony from the victims of the mass hallucination called \"KSP 2\".",

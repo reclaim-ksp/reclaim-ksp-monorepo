@@ -1,0 +1,11 @@
+{
+    "name": "reclaim-ksp-core",
+    "private": true,
+    "version": "0.1.1",
+    "scripts": {
+        "build": "npx ksp-mod-packager"
+    },
+    "devDependencies": {
+        "@reclaim-ksp/ksp-mod-packager": "file:../../packages-internal/ksp-mod-packager"
+    }
+}

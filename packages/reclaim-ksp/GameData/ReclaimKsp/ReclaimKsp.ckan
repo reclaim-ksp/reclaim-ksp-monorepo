@@ -1,0 +1,39 @@
+{
+    "identifier": "ReclaimKsp",
+    "name": "Reclaim KSP",
+    "abstract": "Install this to get the whole Reclaim KSP mod. This metapackage bundles all the required packages.",
+    "author": [
+        "Danny2462"
+    ],
+    "ksp_version_min": "1.12",
+    "license": "CC-BY-NC-ND-4.0",
+    "release_status": "development",
+    "resources": {
+        "bugtracker": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/issues",
+        "homepage": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/tree/main/packages/reclaim-ksp",
+        "repository": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo"
+    },
+    "kind": "metapackage",
+    "install": [
+        {
+            "find": "GameData/ReclaimKsp",
+            "install_to": "GameData",
+            "as": "ReclaimKsp"
+        }
+    ],
+    "x_netkan_version_edit": {
+        "find": ".*@(?<version>.+)$",
+        "replace": "${version}",
+        "strict": true
+    },
+    "depends": [
+        {
+            "name": "ReclaimKspCore",
+            "suppress_recommendations": true
+        },
+        {
+            "name": "ReclaimKspDres",
+            "suppress_recommendations": true
+        }
+    ]
+}

@@ -10,7 +10,7 @@
     "release_status": "development",
     "resources": {
         "bugtracker": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/issues",
-        "homepage": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/tree/main/packages/reclaim-ksp-patches",
+        "homepage": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/tree/main/packages/reclaim-ksp-core",
         "repository": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo"
     },
     "kind": "metapackage",

@@ -1,5 +1,11 @@
 # reclaim-ksp-core
 
+## 0.1.5
+
+### Patch Changes
+
+- bb78b89: fix: `ReclaimKspCore.ckan` updated to have the correct `resources.homepage` property
+
 ## 0.1.4
 
 ### Patch Changes

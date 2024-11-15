@@ -1,5 +1,11 @@
 # reclaim-ksp-patches
 
+## 0.1.5
+
+### Patch Changes
+
+- 7b0bfbf: feat: restored stock game skybox by disabling Astronomer's Visual Pack skybox
+
 ## 0.1.4
 
 ### Patch Changes

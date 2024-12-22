@@ -1,5 +1,11 @@
 # reclaim-ksp-patches
 
+## 0.1.6
+
+### Patch Changes
+
+- 1e6e954: feat: fixed mun et al having opaque black night skyboxes
+
 ## 0.1.5
 
 ### Patch Changes

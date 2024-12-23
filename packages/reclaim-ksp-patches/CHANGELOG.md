@@ -1,5 +1,11 @@
 # reclaim-ksp-patches
 
+## 0.1.7
+
+### Patch Changes
+
+- 50cfc2a: fix: fuel tanks resources patched correctly
+
 ## 0.1.6
 
 ### Patch Changes

@@ -84,10 +84,6 @@
             "suppress_recommendations": true
         },
         {
-            "name": "CommunityResourcePack",
-            "suppress_recommendations": true
-        },
-        {
             "name": "CryoTanks-Core",
             "suppress_recommendations": true
         },
@@ -121,10 +117,6 @@
         },
         {
             "name": "EnvironmentalVisualEnhancements",
-            "suppress_recommendations": true
-        },
-        {
-            "name": "FirespitterCore",
             "suppress_recommendations": true
         },
         {
@@ -172,11 +164,15 @@
             "suppress_recommendations": true
         },
         {
-            "name": "KiwiTechTree",
+            "name": "KerbalStats",
             "suppress_recommendations": true
         },
         {
-            "name": "Konstruction",
+            "name": "KIS",
+            "suppress_recommendations": true
+        },
+        {
+            "name": "KiwiTechTree",
             "suppress_recommendations": true
         },
         {
@@ -252,6 +248,10 @@
             "suppress_recommendations": true
         },
         {
+            "name": "Pathfinder",
+            "suppress_recommendations": true
+        },
+        {
             "name": "PersistentThrust",
             "suppress_recommendations": true
         },
@@ -272,6 +272,10 @@
             "suppress_recommendations": true
         },
         {
+            "name": "Sandcastle",
+            "suppress_recommendations": true
+        },
+        {
             "name": "SCANsat",
             "suppress_recommendations": true
         },
@@ -289,6 +293,10 @@
         },
         {
             "name": "Science-Full-Reward",
+            "suppress_recommendations": true
+        },
+        {
+            "name": "SmartDockingAid",
             "suppress_recommendations": true
         },
         {
@@ -337,14 +345,6 @@
         },
         {
             "name": "TUFX",
-            "suppress_recommendations": true
-        },
-        {
-            "name": "UKS",
-            "suppress_recommendations": true
-        },
-        {
-            "name": "USI-Core",
             "suppress_recommendations": true
         },
         {

@@ -1,5 +1,11 @@
 # reclaim-ksp-core-modpack
 
+## 0.1.6
+
+### Patch Changes
+
+- 78efe33: fix: WildBlue-PlayMode-USI added to avoid having the user specify it at installation time
+
 ## 0.1.5
 
 ### Patch Changes

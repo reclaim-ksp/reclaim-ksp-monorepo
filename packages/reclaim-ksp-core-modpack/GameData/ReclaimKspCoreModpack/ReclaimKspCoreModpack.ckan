@@ -368,6 +368,10 @@
             "suppress_recommendations": true
         },
         {
+            "name": "WildBlue-PlayMode-USI",
+            "suppress_recommendations": true
+        },
+        {
             "name": "xScienceContinued",
             "suppress_recommendations": true
         },

@@ -1,5 +1,12 @@
 # reclaim-ksp-core-modpack
 
+## 0.1.5
+
+### Patch Changes
+
+- dab2285: feat: added Sandcastle, Pathfinder, Kerbal Inventory System
+- dab2285: feat: added SmartDockingAid
+
 ## 0.1.4
 
 ### Patch Changes

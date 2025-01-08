@@ -1,7 +1,7 @@
 {
     "name": "reclaim-ksp-forks",
     "private": true,
-    "version": "0.1.0",
+    "version": "0.1.1",
     "scripts": {
         "build": "npx ksp-mod-packager"
     },

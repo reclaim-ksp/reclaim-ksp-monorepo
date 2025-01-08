@@ -1,5 +1,14 @@
 # reclaim-ksp-core-modpack
 
+## 0.1.7
+
+### Patch Changes
+
+- 6437c60: feat: removed Pathfinder
+- 6437c60: feat: added The Janitor's Closet for seeing which parts belong to what modpack
+  feat: removed Zero Mini AVC, as it conflicts with CKAN-installed Kerbal Inventory System, CKAN tries to restore missing files as an update
+- 6437c60: fix: moved from unmaintained and broken WildBlue-PlayMode-USI to WildBlue-PlayMode-CRP
+
 ## 0.1.6
 
 ### Patch Changes

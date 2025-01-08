@@ -1,5 +1,11 @@
 # reclaim-ksp-patches
 
+## 0.1.8
+
+### Patch Changes
+
+- 55290fb: chore: removed Kcalbeloh settings patching test file
+
 ## 0.1.7
 
 ### Patch Changes

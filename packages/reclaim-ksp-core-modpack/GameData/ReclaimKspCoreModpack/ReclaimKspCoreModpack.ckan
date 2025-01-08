@@ -124,6 +124,10 @@
             "suppress_recommendations": true
         },
         {
+            "name": "JanitorsCloset",
+            "suppress_recommendations": true
+        },
+        {
             "name": "Harmony2",
             "suppress_recommendations": true
         },
@@ -248,10 +252,6 @@
             "suppress_recommendations": true
         },
         {
-            "name": "Pathfinder",
-            "suppress_recommendations": true
-        },
-        {
             "name": "PersistentThrust",
             "suppress_recommendations": true
         },
@@ -368,15 +368,11 @@
             "suppress_recommendations": true
         },
         {
-            "name": "WildBlue-PlayMode-USI",
+            "name": "WildBlue-PlayMode-CRP",
             "suppress_recommendations": true
         },
         {
             "name": "xScienceContinued",
-            "suppress_recommendations": true
-        },
-        {
-            "name": "ZeroMiniAVC",
             "suppress_recommendations": true
         }
     ]

@@ -1,5 +1,11 @@
 # reclaim-ksp-forks
 
+## 0.1.2
+
+### Patch Changes
+
+- 8fbf53f: fix: proper folder structure so that netkan.exe can inflate the .netkan file
+
 ## 0.1.1
 
 ### Patch Changes

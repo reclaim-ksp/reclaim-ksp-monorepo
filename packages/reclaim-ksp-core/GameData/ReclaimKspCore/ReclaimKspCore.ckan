@@ -32,6 +32,10 @@
             "suppress_recommendations": true
         },
         {
+            "name": "ReclaimKspForks",
+            "suppress_recommendations": true
+        },
+        {
             "name": "ReclaimKspPatches",
             "suppress_recommendations": true
         }

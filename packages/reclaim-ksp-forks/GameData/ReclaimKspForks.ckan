@@ -1,0 +1,28 @@
+{
+    "identifier": "ReclaimKspForks",
+    "name": "Reclaim KSP - Forks",
+    "abstract": "This mod contains mods, or part of mods, that have been forked or adapted for Reclaim KSP.",
+    "author": [
+        "Danny2462"
+    ],
+    "ksp_version_min": "1.12",
+    "license": "CC-BY-NC-ND-4.0",
+    "release_status": "development",
+    "resources": {
+        "bugtracker": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/issues",
+        "homepage": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo/tree/main/packages/reclaim-ksp-forks",
+        "repository": "https://github.com/reclaim-ksp/reclaim-ksp-monorepo"
+    },
+    "install": [
+        {
+            "find": "GameData/ReclaimKspForks",
+            "install_to": "GameData",
+            "as": "ReclaimKspForks"
+        }
+    ],
+    "x_netkan_version_edit": {
+        "find": ".*@(?<version>.+)$",
+        "replace": "${version}",
+        "strict": true
+    }
+}

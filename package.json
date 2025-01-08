@@ -40,7 +40,8 @@
         "packages/reclaim-ksp",
         "packages/reclaim-ksp-core",
         "packages/reclaim-ksp-core-modpack",
-        "packages/reclaim-ksp-dres",
-        "packages/reclaim-ksp-patches"
+        "packages/reclaim-ksp-patches",
+        "packages/reclaim-ksp-forks",
+        "packages/reclaim-ksp-dres"
     ]
 }

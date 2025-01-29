@@ -28,3 +28,9 @@
 
 - Q: What next?
 - A: If this gets enough traction, I wish to attract people who want to bring further improvements over from KSP 2. Missing water-based science, and the story of KSP 2 would be lovely.
+
+## License
+
+See [LICENSE](./LICENSE).
+
+Licenses of used mods should be honored, please open an issue if you find a licensing issue.

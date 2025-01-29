@@ -37,11 +37,6 @@
         "typescript-eslint": "^8.10.0"
     },
     "workspaces": [
-        "packages/reclaim-ksp",
-        "packages/reclaim-ksp-core",
-        "packages/reclaim-ksp-core-modpack",
-        "packages/reclaim-ksp-patches",
-        "packages/reclaim-ksp-forks",
-        "packages/reclaim-ksp-dres"
+        "packages/*"
     ]
 }

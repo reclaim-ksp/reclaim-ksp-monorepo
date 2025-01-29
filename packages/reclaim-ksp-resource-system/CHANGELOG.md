@@ -1,5 +1,11 @@
 # reclaim-ksp-resource-system
 
+## 0.1.3
+
+### Patch Changes
+
+- d6e5194: feat: ReclaimKspForks is now ReclaimKspResourceSystem, which adapts ExtraplanetaryLaunchpads resources to augment Sandcastle (proof-of-concept, needs lots of changes and cleanup)
+
 ## 0.1.2
 
 ### Patch Changes

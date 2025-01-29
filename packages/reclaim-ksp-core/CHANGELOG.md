@@ -1,5 +1,12 @@
 # reclaim-ksp-core
 
+## 0.1.7
+
+### Patch Changes
+
+- febe342: feat: removed ReclaimKspForks in favor of ReclaimKspResourceSystem
+- f17235c: feat: added the flag from Danny2462 videos
+
 ## 0.1.6
 
 ### Patch Changes
